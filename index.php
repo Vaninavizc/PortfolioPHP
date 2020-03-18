@@ -1,3 +1,15 @@
+<?php
+
+    require('connect.php');
+
+    require('session.php');
+     # On appelle aussi le compte utilisateur admin car on en aura besoin pour plus tard 
+
+    $reponse = $bdPdo->query('SELECT * FROM projet ORDER BY DtCreAPro DESC');
+
+?>
+
+
 <!doctype html>
 <html lang="fr">
 
@@ -14,8 +26,20 @@
 
         <nav>
             <h1> Les Trois Mousquetaires <br> Portfolios</h1>
-            <a href="#">Se connecter</a>
+            <?php 
+                if($Connected == true){
+            ?>
+             <div class="col-lg-6">
+                <a href="disconnected.php">Déconnexion</a>
+                </form>
+            </div>
+            <?php }
+                else{
+            ?>
+            <a href="connexion/login_form.php">Se connecter</a> 
         </nav>
+        <?php }
+         ?>
        
         <section>
             <div class="name">
@@ -23,36 +47,22 @@
             </div>
             <div class="projects"> 
                 <main class="page-content">
-                    <div class="card Marie">
+              <?php  // On affiche chaque entrée une à une
+            while ($projets = $reponse->fetch()) { 
+                if ($projets['NumProfil'] == 1){
+                ?>
+                    <div class="card Marie" style="background-image: url(<?= $projets['UrlPhoto'] ?>);">
                     <div class="content">
-                        <h2 class="title">Coco na Chanel</h2>
-                        <p class="copy">Hihi Coco Chanel is my idole kiss</p>
+                        <h2 class="title"><?= $projets['LibTitrPro'] ?></h2>
+                        <p class="copy"><?= $projets['LibChapo'] ?></p>
+                        <time><?= $projets['DtCreaPro'] ?></time>
                         <button class="btn">VOIR</button>
                     </div>
                     </div>
-                    <div class="card Marie">
-                    <div class="content">
-                        <h2 class="title">Phoque you Bitch</h2>
-                        <p class="copy">Phoque > ALL</p>
-                        <button class="btn">VOIR</button>
-                    </div>
-                    </div>
-                    <div class="card Marie">
-                    <div class="content">
-                        <h2 class="title">CHO-CO-LAT</h2>
-                        <p class="copy">Couleur café, que j'aime le CHO-CO-LAT</p>
-                        <button class="btn">VOIR</button>
-                    </div>
-                    </div>
-                    <div class="card Marie">
-                    <div class="content">
-                        <h2 class="title">The King</h2>
-                        <p class="copy">Hi bitches</p>
-                        <button class="btn">VOIR</button>
-                    </div>
-                    </div>
+                    <?php } } ?>
                 </main>
             </div>
+
         </section>
 
         <section>

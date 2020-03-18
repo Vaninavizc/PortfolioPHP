@@ -119,22 +119,12 @@ nav a{
   transition: transform calc(var(--d) * 2) var(--e);
   transition: transform calc(var(--d) * 2) var(--e), -webkit-transform calc(var(--d) * 2) var(--e);
 }
-.Marie:nth-child(1):before {
-  background-image: url(https://resize-elle.ladmedia.fr/r/300,,forcex/crop/300,386,center-middle,forcex,ffffff/img/var/plain_site/storage/images/personnalites/coco-chanel/9726378-1-fre-FR/coco_chanel.jpg);
-}
-.Marie:nth-child(2):before {
-  background-image: url(https://www.sblanc.com/wp-content/uploads/2008/10/Phoque-Weddell-Samuel_Blanc-20061020_174855.jpg);
-}
 .Marie:nth-child(3):before {
   background-image: url(https://cdn.pratico-pratiques.com/app/uploads/sites/3/2018/08/20193108/gateau-mousse-aux-trois-chocolat.jpeg);
 }
 .Marie:nth-child(4):before {
   background-image: url(https://cdn-elle.ladmedia.fr/var/plain_site/storage/images/loisirs/musique/news/harry-styles-il-dit-oui-a-un-retour-des-one-direction-3802675/90734173-1-fre-FR/Harry-Styles-il-dit-oui-a-un-retour-des-One-Direction.jpg);
 }
-
-.Clelia:nth-child(1):before {
-    background-image: url(https://images.unsplash.com/photo-1524246009948-6dddf3f8fc23?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60);
-  }
   .Clelia:nth-child(2):before {
     background-image: url(https://images.unsplash.com/photo-1517093602195-b40af9688b46?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60);
   }

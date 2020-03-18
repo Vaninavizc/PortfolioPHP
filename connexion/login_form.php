@@ -1,3 +1,13 @@
+   <?php
+    require ('../connect.php');
+        if (isset($_SESSION['Connected']) && !empty($_SESSION['Connected'])) {
+            $Connected = $_SESSION['Connected'];
+        } #On ne peut que se connecter si l'utilisateur reconnait la connexion à la base de donnée
+        else {
+            $Connected = false;
+        }
+    ?>
+
 <!doctype html>
 <html lang="fr">
 
@@ -14,26 +24,28 @@
 
         <nav>
             <h1> Les Trois Mousquetaires <br> Portfolios</h1>
-            <a href="#">Se connecter</a>
+            <a href="../index.php">Retour</a>
         </nav>
-        
+
+      <form action="../admin.php" method="post">
         <div class="cont">
           <div class="form sign-in">
             <h2>Hello !</h2>
             <label>
-              <span>Email</span>
-              <input type="email" />
+              <span>Login</span>
+              <input type="login" name="login" />
             </label>
             <label>
               <span>Mot de passe</span>
-              <input type="password" />
+              <input type="password" name="pass" />
             </label>
-            <button type="button" class="submit">Se connecter</button>
+            <button type="submit" class="submit">Se connecter</button>
           </div>
           <div class="sub-cont">
             <div class="img"> </div>
           </div>
         </div>
+      </form>
 
       </body>
 
