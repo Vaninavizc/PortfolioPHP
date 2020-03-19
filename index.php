@@ -1,12 +1,19 @@
 <?php
 
     require('connect.php');
+    #On appelle le connect pour se connecter à la base de donnée
 
     require('session.php');
      # On appelle aussi le compte utilisateur admin car on en aura besoin pour plus tard 
 
     $reponse = $bdPdo->query('SELECT * FROM projet ORDER BY DtCreAPro DESC');
+    #ici on créé une variable réponse qui appelle la base de donnée et on lui ordonne de récupérer toutes les informations de la table, rangées par date dans un ordre décroissant
 
+    $reponseCle = $bdPdo->query('SELECT * FROM projet ORDER BY DtCreAPro DESC');
+    #Je créé la même variable pour les projets de Clélia
+
+    $reponseV = $bdPdo->query('SELECT * FROM projet ORDER BY DtCreAPro DESC');
+    #Je créé la même variable pour les projets de Vanina
 ?>
 
 
@@ -47,9 +54,9 @@
             </div>
             <div class="projects"> 
                 <main class="page-content">
-              <?php  // On affiche chaque entrée une à une
+            <?php  // On affiche chaque entrée une à une
             while ($projets = $reponse->fetch()) { 
-                if ($projets['NumProfil'] == 1){
+                if ($projets['NumProfil'] == 1){ #Pour Marie, seuls s'affichent les projets liés au numéro de profil 1 soit le profil de Marie
                 ?>
                     <div class="card Marie" style="background-image: url(<?= $projets['UrlPhoto'] ?>);">
                     <div class="content">
@@ -62,7 +69,6 @@
                     <?php } } ?>
                 </main>
             </div>
-
         </section>
 
         <section>
@@ -71,34 +77,19 @@
             </div>
             <div class="projects">
                 <main class="page-content">
-                    <div class="card Clelia">
+            <?php  // On affiche chaque entrée une à une
+            while ($projetCle = $reponseCle->fetch()) { 
+                if ($projetCle['NumProfil'] == 2){ #Pour Clélia, seuls s'affichent les projets liés au numéro de profil 2 soit le profil de Ckékua
+                ?>
+                    <div class="card Clelia" style="background-image: url(<?= $projetCle['UrlPhoto'] ?>);">
                     <div class="content">
-                        <h2 class="title">Recette de Raccoon</h2>
-                        <p class="copy">Miam miam </p>
+                        <h2 class="title"><?= $projetCle['LibTitrPro'] ?></h2>
+                        <p class="copy"><?= $projetCle['LibChapo'] ?></p>
+                        <time><?= $projetCle['DtCreaPro'] ?></time>
                         <button class="btn">VOIR</button>
                     </div>
                     </div>
-                    <div class="card Clelia">
-                    <div class="content">
-                        <h2 class="title">Je sens l'odeur et ça me dégoute</h2>
-                        <p class="copy">BEURK</p>
-                        <button class="btn">VOIR</button>
-                    </div>
-                    </div>
-                    <div class="card Clelia">
-                    <div class="content">
-                        <h2 class="title">Ville : Toulouse</h2>
-                        <p class="copy">Rue : Lautrec</p>
-                        <button class="btn">VOIR</button>
-                    </div>
-                    </div>
-                    <div class="card Clelia">
-                    <div class="content">
-                        <h2 class="title">Blah blah blah blah cactus</h2>
-                        <p class="copy">Ferme la porte t'as des cactus dans l'sas</p>
-                        <button class="btn">VOIR</button>
-                    </div>
-                    </div>
+                    <?php } } ?>
                 </main>
             </div>
         </section>
@@ -109,34 +100,19 @@
             </div>
             <div class="projects">
                 <main class="page-content">
-                    <div class="card van">
+             <?php  // On affiche chaque entrée une à une
+            while ($projetV = $reponseV->fetch()) { 
+                if ($projetV['NumProfil'] == 3){ #Pour Vanina, seuls s'affichent les projets liés au numéro de profil 3 soit le profil de Vanina
+                ?>
+                    <div class="card van" style="background-image: url(<?= $projetV['UrlPhoto'] ?>);">
                     <div class="content">
-                        <h2 class="title">Vintage vibes</h2>
-                        <p class="copy">Old things are better</p>
+                        <h2 class="title"><?= $projetV['LibTitrPro'] ?></h2>
+                        <p class="copy"><?= $projetV['LibChapo'] ?></p>
+                        <time><?= $projetV['DtCreaPro'] ?></time>
                         <button class="btn">VOIR</button>
                     </div>
                     </div>
-                    <div class="card van">
-                    <div class="content">
-                        <h2 class="title">l'Histoire mgl</h2>
-                        <p class="copy">CC François</p>
-                        <button class="btn">VOIR</button>
-                    </div>
-                    </div>
-                    <div class="card van">
-                    <div class="content">
-                        <h2 class="title">J'aime les fleurs</h2>
-                        <p class="copy">Je sais pas trop en prendre soin</p>
-                        <button class="btn">VOIR</button>
-                    </div>
-                    </div>
-                    <div class="card van">
-                    <div class="content">
-                        <h2 class="title">LES FOULARDS</h2>
-                        <p class="copy">All my life</p>
-                        <button class="btn">VOIR</button>
-                    </div>
-                    </div>
+                    <?php } } ?>
                 </main>
             </div>
         </section>

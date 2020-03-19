@@ -40,6 +40,6 @@
             $_SESSION['login'] = null;
             $_SESSION['pass'] = null;
             echo '<body onLoad="alert(\'Membre non reconnu...\')">';
-            echo '<meta http-equiv="refresh" content="0;URL=login_form.php">';
+            echo '<meta http-equiv="refresh" content="0;URL=connexion/login_form.php">';
     }
 ?>
