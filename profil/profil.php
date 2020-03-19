@@ -6,12 +6,12 @@
     require('../connexion/session.php');
      # On appelle aussi le compte utilisateur admin car on en aura besoin pour plus tard 
 
-    $NumProfil = $_GET['NumProfil']; #récupère le NumPro
+    $NumProfil = $_GET['NumProfil']; #récupère le NumProfil
 
     $reponse = $bdPdo->prepare('SELECT * FROM profile WHERE NumProfil = ?');
     #ici on créé une variable réponse qui appelle la base de donnée et on lui ordonne de récupérer toutes les informations de la table, rangées par date dans un ordre décroissant
 
-    $reponse->execute([$NumProfil]); #execute exécute la requete en remplaçant le "?" par le paramètre qu'on attendait (ici, le NumPro)
+    $reponse->execute([$NumProfil]); #execute exécute la requete en remplaçant le "?" par le paramètre qu'on attendait (ici, le NumProfil)
 ?>
 
   <!doctype html>
@@ -46,13 +46,13 @@ $profil = $reponse->fetch()
                 </div>
             </div>
              <div class="col-lg-6">
-                <a href="../../connexion/disconnected.php">Déconnexion</a>
+                <a href="../connexion/disconnected.php">Déconnexion</a>
                 </form>
             </div>
             <?php }
                 else{
             ?>
-            <a href="../../connexion/login_form.php">Se connecter</a> 
+            <a href="../connexion/login_form.php">Se connecter</a> 
         </nav>
         <?php }
          ?>

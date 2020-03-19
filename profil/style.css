@@ -1,0 +1,134 @@
+  @import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Cardo:400i|Rubik:400,700&display=swap");
+
+
+body{
+    font-family: 'Poppins', sans-serif;
+    margin:0;
+    padding:0;
+    outline:0;
+    overflow-x: hidden;
+  }
+
+h1, a{
+    margin: 0;
+    bottom: 0;
+}
+
+nav{
+    margin: 0;
+    padding: 20px;
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+nav h1{
+    flex-basis: 90%;
+}
+
+nav a{
+    margin-top: 7px;
+    text-decoration: none;
+}
+
+h4{
+    text-align: center;
+}
+  .fade {
+   opacity: 1;
+  }
+  .date{
+   font-size: 13px;
+   text-transform: uppercase;
+   letter-spacing: 0.3em;
+  }
+  
+  
+  /* Texts */
+  
+  h1{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+  }
+  p{
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    color: grey;
+    font-weight: 300;
+  }
+  /**/
+  
+  /* Header project */
+  
+  /**/
+  
+  .headerProjects{
+    margin: 0 0 70px 0;
+    width: 100%;
+    height: auto;
+    /*background: red;*/
+  }
+  .headerProjects .mainContainerProject{
+    width: 55%;
+    height: auto;
+    margin-top: 0;
+    padding: 130px 0 0 0;
+    
+    position: relative;
+    left: 33%;
+    transform: translateX(-33%);
+  }
+  
+  .headerProjects .containerPreview{
+    width: 100%;
+    height: 450px;
+    background-size: 100%;
+    background-position: center;
+  }
+  
+  .headerProjects .containerPreview:before{
+    content:"";
+    display:block;
+    width: 200%;
+    height: 500px;
+    background-color: #F5F6FA;
+    position: relative;
+    z-index: -1;
+    transform: translateY(-130px) translateX(500px);
+  }
+  
+  .titleProjectHeader{
+    position: absolute;
+    width: 350px;
+    right: -10%;
+    transform: translateY(70px);
+  }
+  
+  /**/
+  
+  /* Intro project */
+  
+  /**/
+  
+  .containerIntroProject{
+      width: 650px;
+      margin: 80px auto 140px auto;
+  
+      display: inline-grid;
+      grid-template-columns: 55% 15% 30%;
+  
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+  }
+  
+  .introProject{
+      grid-column-start: 1;
+      grid-column-end: 2;
+  }
+  .introProject p{
+      margin-bottom: 40px;
+  }
+

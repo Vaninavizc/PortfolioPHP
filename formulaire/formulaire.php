@@ -12,8 +12,6 @@
     $rep = $bdPdo->query('SELECT * FROM profile');
     #ici on créé une variable réponse qui appelle la base de donnée et on lui ordonne de récupérer toutes les informations de la table, rangées par date dans un ordre décroissant
 
-    
-
 ?>
 
 <!doctype html>
