@@ -7,7 +7,7 @@
         unset($_SESSION['login']);
         unset($_SESSION['pwd']);
 
-        header ('location: index.php');
+        header ('location: ../index.php');
 
 
     #Déconnecte l'utilisateur quand il est connecté en tant qu'admin

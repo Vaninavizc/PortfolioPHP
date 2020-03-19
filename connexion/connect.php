@@ -1,6 +1,6 @@
 <?php
 
-	$server ="mysql:host=localhost;dbname=php";
+	$server ="mysql:host=localhost;dbname=php"; #php, c'est le nom de notre base de donnée ça
 	$user = "root" ;
     $password = ""; 
 

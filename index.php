@@ -1,19 +1,21 @@
 <?php
 
-    require('connect.php');
+    require('connexion/connect.php');
     #On appelle le connect pour se connecter à la base de donnée
 
-    require('session.php');
+    require('connexion/session.php');
      # On appelle aussi le compte utilisateur admin car on en aura besoin pour plus tard 
 
     $reponse = $bdPdo->query('SELECT * FROM projet ORDER BY DtCreAPro DESC');
-    #ici on créé une variable réponse qui appelle la base de donnée et on lui ordonne de récupérer toutes les informations de la table, rangées par date dans un ordre décroissant
+    #ici on créé une variable réponse qui appelle la base de donnée et on lui ordonne de récupérer toutes les informations de la table, rangées par date dans un ordre décroissant, le query execute directement
 
     $reponseCle = $bdPdo->query('SELECT * FROM projet ORDER BY DtCreAPro DESC');
     #Je créé la même variable pour les projets de Clélia
 
     $reponseV = $bdPdo->query('SELECT * FROM projet ORDER BY DtCreAPro DESC');
     #Je créé la même variable pour les projets de Vanina
+
+
 ?>
 
 
@@ -36,8 +38,16 @@
             <?php 
                 if($Connected == true){
             ?>
+            <div class="row">
+                <div class="col-lg-6 text-center">
+                    <a class='connect' href='formulaire/formulaire.php'>Ajouter un nouveau projet</a>
+                </div>
+                 <div class="col-lg-6 text-center">
+                    <a class='connect' href='form_profil/form_pro.php'>Ajouter un nouveau profil</a>
+                </div>
+            </div>
              <div class="col-lg-6">
-                <a href="disconnected.php">Déconnexion</a>
+                <a href="connexion/disconnected.php">Déconnexion</a>
                 </form>
             </div>
             <?php }
@@ -50,7 +60,9 @@
        
         <section>
             <div class="name">
-                <h3>Marie Goursaud</h3>
+                <h3>
+                    <a href="profil/profil.php?NumProfil=1"> Marie Goursaud</a>
+                </h3>
             </div>
             <div class="projects"> 
                 <main class="page-content">
@@ -63,17 +75,22 @@
                         <h2 class="title"><?= $projets['LibTitrPro'] ?></h2>
                         <p class="copy"><?= $projets['LibChapo'] ?></p>
                         <time><?= $projets['DtCreaPro'] ?></time>
+                    <form action= "projet/projet.php" method="POST" > 
+                        <input type="hidden" name="NumPro" value="<?= $projets['NumPro'] ?>">
                         <button class="btn">VOIR</button>
+                    </form>
                     </div>
                     </div>
-                    <?php } } ?>
+                    <?php } } ?> 
                 </main>
             </div>
         </section>
 
         <section>
             <div class="name">
-                <h3>Clélia Guyon</h3>
+               <h3>
+                    <a href="profil/profil.php?NumProfil=2"> Clélia Guyon</a>
+                </h3>
             </div>
             <div class="projects">
                 <main class="page-content">
@@ -86,7 +103,10 @@
                         <h2 class="title"><?= $projetCle['LibTitrPro'] ?></h2>
                         <p class="copy"><?= $projetCle['LibChapo'] ?></p>
                         <time><?= $projetCle['DtCreaPro'] ?></time>
+                    <form action= "projet/projet.php" method="POST" > 
+                        <input type="hidden" name="NumPro" value="<?= $projetCle['NumPro'] ?>">
                         <button class="btn">VOIR</button>
+                    </form>
                     </div>
                     </div>
                     <?php } } ?>
@@ -96,7 +116,9 @@
 
         <section>
             <div class="name">
-                <h3>Vanina Idiart</h3>
+                <h3>
+                    <a href="profil/profil.php?NumProfil=3"> Vanina Idiart</a>
+                </h3>
             </div>
             <div class="projects">
                 <main class="page-content">
@@ -109,7 +131,10 @@
                         <h2 class="title"><?= $projetV['LibTitrPro'] ?></h2>
                         <p class="copy"><?= $projetV['LibChapo'] ?></p>
                         <time><?= $projetV['DtCreaPro'] ?></time>
+                    <form action= "projet/projet.php" method="POST" > 
+                        <input type="hidden" name="NumPro" value="<?= $projetV['NumPro'] ?>">
                         <button class="btn">VOIR</button>
+                    </form>
                     </div>
                     </div>
                     <?php } } ?>

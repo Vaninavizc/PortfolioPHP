@@ -1,5 +1,5 @@
    <?php
-    require ('../connect.php');
+    require ('connect.php');
         if (isset($_SESSION['Connected']) && !empty($_SESSION['Connected'])) {
             $Connected = $_SESSION['Connected'];
         } #On ne peut que se connecter si l'utilisateur reconnait la connexion à la base de donnée
@@ -27,7 +27,7 @@
             <a href="../index.php">Retour</a>
         </nav>
 
-      <form action="../admin.php" method="post">
+      <form action="./admin.php" method="post">
         <div class="cont">
           <div class="form sign-in">
             <h2>Hello !</h2>
